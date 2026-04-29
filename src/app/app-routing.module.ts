@@ -1,16 +1,24 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AppLayoutComponent } from './layout/app.layout.component';
+import { ReadClientesComponent } from './demo/components/menu/clientes/read-clientes/read-clientes.component';
+import { ReadFacturacionComponent } from './demo/components/menu/facturacion/read-facturacion/read-facturacion.component';
+import { ReadProductosComponent } from './demo/components/menu/productos/read-productos/read-productos.component';
+import { LoginComponent } from './demo/components/login/login/login.component';
 
 const routerOptions: ExtraOptions = {
     anchorScrolling: 'enabled'
 };
 
 const routes: Routes = [
+    { path: '', component: LoginComponent },
     {
-        path: '', component: AppLayoutComponent,
+        path: 'Inicio', component: AppLayoutComponent,
         children: [
             { path: '', loadChildren: () => import('./demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
+            { path: 'Clientes', component: ReadClientesComponent },
+            { path: 'Facturacion', component: ReadFacturacionComponent },
+            { path: 'Productos', component: ReadProductosComponent },
             { path: 'uikit', data: { breadcrumb: 'UI Kit' }, loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
             { path: 'utilities', data: { breadcrumb: 'Utilities' }, loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
             { path: 'pages', data: { breadcrumb: 'Pages' }, loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) },

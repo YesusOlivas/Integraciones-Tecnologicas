@@ -16,10 +16,31 @@ export class AppMenuComponent implements OnInit {
                 icon: 'pi pi-home',
                 items: [
                     {
-                        label: 'E-Commerce',
+                        label: 'Inicio',
                         icon: 'pi pi-fw pi-home',
                         routerLink: ['/']
                     }
+                ]
+            },
+            {
+                label: 'Menú',
+                icon: 'pi pi-home',
+                items: [
+                    {
+                        label: 'Clientes',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: ['Inicio/Clientes']
+                    },
+                    {
+                        label: 'Productos',
+                        icon: 'pi pi-fw pi-box',
+                        routerLink: ['Inicio/Productos']
+                    },
+                    {
+                        label: 'Facturac',
+                        icon: 'pi pi-fw pi-shopping-cart',
+                        routerLink: ['Inicio/Facturacion']
+                    },
                 ]
             },
             {
