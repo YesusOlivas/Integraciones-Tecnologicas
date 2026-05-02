@@ -18,7 +18,7 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Inicio',
                         icon: 'pi pi-fw pi-home',
-                        routerLink: ['/']
+                        routerLink: ['/Inicio/Dashboard']
                     }
                 ]
             },
@@ -29,17 +29,17 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Clientes',
                         icon: 'pi pi-fw pi-users',
-                        routerLink: ['Inicio/Clientes']
+                        routerLink: ['/Inicio/Clientes']
                     },
                     {
                         label: 'Productos',
                         icon: 'pi pi-fw pi-box',
-                        routerLink: ['Inicio/Productos']
+                        routerLink: ['/Inicio/Productos']
                     },
                     {
                         label: 'Facturac',
                         icon: 'pi pi-fw pi-shopping-cart',
-                        routerLink: ['Inicio/Facturacion']
+                        routerLink: ['/Inicio/Facturacion']
                     },
                 ]
             },

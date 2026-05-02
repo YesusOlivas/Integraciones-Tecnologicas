@@ -5,17 +5,21 @@ import { ReadClientesComponent } from './demo/components/menu/clientes/read-clie
 import { ReadFacturacionComponent } from './demo/components/menu/facturacion/read-facturacion/read-facturacion.component';
 import { ReadProductosComponent } from './demo/components/menu/productos/read-productos/read-productos.component';
 import { LoginComponent } from './demo/components/login/login/login.component';
+import { authGuard } from './demo/guard/auth.guard';
 
 const routerOptions: ExtraOptions = {
     anchorScrolling: 'enabled'
 };
 
 const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: '', redirectTo: 'Login', pathMatch: 'full' },
+    { path: 'Login', component: LoginComponent },
     {
-        path: 'Inicio', component: AppLayoutComponent,
+        path: 'Inicio', 
+        component: AppLayoutComponent,
+        canActivate: [authGuard],
         children: [
-            { path: '', loadChildren: () => import('./demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
+            { path: 'Dashboard', loadChildren: () => import('./demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
             { path: 'Clientes', component: ReadClientesComponent },
             { path: 'Facturacion', component: ReadFacturacionComponent },
             { path: 'Productos', component: ReadProductosComponent },
