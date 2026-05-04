@@ -1,1 +1,54 @@
-<p>read-clientes works!</p>
+<div class="clientes-page card">
+    <div class="page-header">
+        <h2>Clientes</h2>
+    </div>
+    
+    <div class="clientes-grid">
+        <div class="cliente-column" *ngFor="let cliente of clientes">
+            <div class="card1">
+                <div class="tools1">
+                    <div class="circle1"><span class="red1 box1"></span></div>
+                    <div class="circle1"><span class="yellow1 box1"></span></div>
+                    <div class="circle1"><span class="green1 box1"></span></div>
+                </div>
+
+                <div class="card-content-body">
+                    <div class="avatar-wrap">
+                        @if(cliente.clie_sexo === 'M') {
+                            <div class="avatar male">{{ cliente.clie_primer_nombre | slice:0:1 }}{{ cliente.clie_primer_apellido | slice:0:1 }}</div>
+                        } @else {
+                            <div class="avatar female">{{ cliente.clie_primer_nombre | slice:0:1 }}{{ cliente.clie_primer_apellido | slice:0:1 }}</div>
+                        }
+                    </div>
+
+                    <p class="client-name">{{ cliente.clie_primer_nombre }} {{ cliente.clie_primer_apellido }}</p>
+
+                    <div class="divider"></div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <p class="info-label">Nombres</p>
+                            <p class="info-value accent-blue">{{ cliente.clie_primer_nombre }} {{ cliente.clie_segundo_nombre }}</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Apellidos</p>
+                            <p class="info-value accent-blue">{{ cliente.clie_primer_apellido }} {{ cliente.clie_segundo_apellido }}</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Teléfono</p>
+                            <p class="info-value">{{ cliente.clie_telefono }}</p>
+                        </div>
+                        <div class="info-item">
+                            <p class="info-label">Sexo</p>
+                            <p class="info-value">{{ cliente.clie_sexo }}</p>
+                        </div>
+                        <div class="info-item full">
+                            <p class="info-label">Dirección</p>
+                            <p class="info-value">{{ cliente.clie_direccion }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
